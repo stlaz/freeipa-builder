@@ -13,13 +13,22 @@ docker up and running) like this:
 
 ```
 # build the Fedora latest image first
-docker build -t freeipa-builder:master:fedora:latest \
+docker build -t freeipa-fedora-builder:master-latest \
     https://github.com/martbab/freeipa-builder.git#master:fedora/latest
 
 # clone FreeIPA repo
 git clone https://github.com/freeipa/freeipa.git && cd freeipa
 
 # build the RPMs while preserving the correct ownership of the built artifacts
-docker run -v $PWD:/freeipa -w /freeipa \
+docker run -v $PWD:/freeipa:Z -w /freeipa freeipa-fedora-builder:master-latest \
+    /bin/bash -c "make rpms && chown -R $UID:$GROUPS dist" 
+```
+
+Alternatively, selected images have been built in Docker registry, so you can
+pull in the image and run build in one command:
+
+```
+docker run -v $PWD:/freeipa:Z -w /freeipa \
+    martbab/freeipa-fedora-builder:master-latest
     /bin/bash -c "make rpms && chown -R $UID:$GROUPS dist" 
 ```
