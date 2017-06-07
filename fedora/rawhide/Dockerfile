@@ -3,7 +3,7 @@ MAINTAINER [Martin Babinsky martbab@gmail.com]
 
 RUN echo 'deltarpm = false' >> /etc/dnf/dnf.conf \
     && dnf update -y dnf \
-    && dnf install -y dnf-plugins-core sudo dnf-plugins-extras wget \
+    && dnf install -y dnf-plugins-core sudo wget \
     # FIXME: due to packaging issues the following is not a dependency of
     # python{2,3}-rpm-macros, and must be installed manually
     && dnf install -y python-srpm-macros \
