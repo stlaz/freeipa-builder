@@ -3,7 +3,7 @@ MAINTAINER [FreeIPA Developers freeipa-devel@lists.fedorahosted.org]
 
 RUN echo 'deltarpm = false' >> /etc/dnf/dnf.conf \
     && dnf update -y dnf \
-    && dnf install -y dnf-plugins-core sudo dnf-plugins-extras wget \
+    && dnf install -y dnf-plugins-core sudo wget \
     && dnf config-manager --set-enabled updates-testing \
     && dnf copr enable -y @freeipa/freeipa-master \
     # FIXME: due to packaging issues the following is not a dependency of
