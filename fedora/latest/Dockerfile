@@ -1,5 +1,5 @@
 FROM fedora:latest
-MAINTAINER [Martin Babinsky martbab@gmail.com]
+MAINTAINER [FreeIPA Developers freeipa-devel@lists.fedorahosted.org]
 
 RUN echo 'deltarpm = false' >> /etc/dnf/dnf.conf \
     && dnf update -y dnf \
