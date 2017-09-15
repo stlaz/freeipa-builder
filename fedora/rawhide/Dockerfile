@@ -1,4 +1,4 @@
-FROM fedora:rawhide
+FROM registry.fedoraproject.org/fedora:rawhide
 MAINTAINER [Martin Babinsky martbab@gmail.com]
 
 RUN echo 'deltarpm = false' >> /etc/dnf/dnf.conf \
