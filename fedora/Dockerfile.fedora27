@@ -1,4 +1,4 @@
-FROM fedora:latest
+FROM fedora:27
 MAINTAINER [FreeIPA Developers freeipa-devel@lists.fedorahosted.org]
 
 RUN echo 'deltarpm = false' >> /etc/dnf/dnf.conf \
